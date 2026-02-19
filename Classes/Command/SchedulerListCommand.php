@@ -110,8 +110,7 @@ class SchedulerListCommand extends Command
             $interval = (int)($input->getOption('watch') ?: 1);
             $infoSection->write('Watching tasks every ' . $interval . ' seconds, press CTRL+C to stop watching');
 
-            /** @phpstan-ignore-next-line  */
-            while (true) {
+            while (true) { // @phpstan-ignore while.alwaysTrue (intentional infinite loop for CLI watch mode, terminated by CTRL+C signal)
                 sleep($interval);
                 $this->updateTable($input, $table, $tableBuffer, $tableSection);
             }
