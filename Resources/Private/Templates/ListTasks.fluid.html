@@ -14,21 +14,6 @@
     <f:asset.module identifier="@typo3/scheduler/scheduler-sortable-groups.js"/>
     <f:asset.module identifier="@typo3/scheduler/scheduler-add-group.js"/>
 
-    <f:be.pageRenderer
-        addJsInlineLabels="{
-            'scheduler.createGroup': 'LLL:EXT:scheduler/Resources/Private/Language/locallang.xlf:function.group.add',
-            'scheduler.groupName': 'LLL:EXT:scheduler/Resources/Private/Language/locallang.xlf:function.group.label',
-            'scheduler.modalCancel': 'LLL:EXT:scheduler/Resources/Private/Language/locallang.xlf:button.cancel',
-            'scheduler.modalOk': 'LLL:EXT:scheduler/Resources/Private/Language/locallang.xlf:button.group.modalOk',
-            'scheduler.group.error.title': 'LLL:EXT:scheduler/Resources/Private/Language/locallang.xlf:msg.group.notification.error.title',
-            'scheduler.group.error.message': 'LLL:EXT:scheduler/Resources/Private/Language/locallang.xlf:msg.group.notification.error.message',
-            'editableGroupName.input.field.label': 'LLL:EXT:scheduler/Resources/Private/Language/locallang.xlf:editableGroupName.input.field.label',
-            'editableGroupName.button.edit.label': 'LLL:EXT:scheduler/Resources/Private/Language/locallang.xlf:editableGroupName.button.edit.label',
-            'editableGroupName.button.save.label': 'LLL:EXT:core/Resources/Private/Language/locallang_common.xlf:save',
-            'editableGroupName.button.cancel.label': 'LLL:EXT:core/Resources/Private/Language/locallang_common.xlf:cancel'
-        }"
-    />
-
     <h1><f:translate key="LLL:EXT:scheduler/Resources/Private/Language/locallang.xlf:function.scheduler" /></h1>
     <f:if condition="{groups} || {errorClasses}">
         <f:then>
