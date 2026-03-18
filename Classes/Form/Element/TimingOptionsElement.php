@@ -39,17 +39,6 @@ use TYPO3\CMS\Scheduler\Execution;
  */
 class TimingOptionsElement extends AbstractFormElement
 {
-    /**
-     * Default field information enabled for this element.
-     *
-     * @var array
-     */
-    protected $defaultFieldInformation = [
-        'tcaDescription' => [
-            'renderType' => 'tcaDescription',
-        ],
-    ];
-
     public function __construct(
         private readonly ViewFactoryInterface $viewFactory,
         private readonly Context $context,

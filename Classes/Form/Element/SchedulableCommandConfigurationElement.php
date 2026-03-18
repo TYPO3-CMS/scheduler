@@ -40,17 +40,6 @@ use TYPO3\CMS\Scheduler\Task\ExecuteSchedulableCommandTask;
  */
 class SchedulableCommandConfigurationElement extends AbstractFormElement
 {
-    /**
-     * Default field information enabled for this element.
-     *
-     * @var array
-     */
-    protected $defaultFieldInformation = [
-        'tcaDescription' => [
-            'renderType' => 'tcaDescription',
-        ],
-    ];
-
     public function __construct(
         protected readonly TaskService $taskService,
         protected readonly CommandRegistry $commandRegistry,

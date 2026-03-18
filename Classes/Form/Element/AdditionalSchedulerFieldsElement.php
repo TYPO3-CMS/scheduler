@@ -34,17 +34,6 @@ use TYPO3\CMS\Scheduler\Service\TaskService;
  */
 class AdditionalSchedulerFieldsElement extends AbstractFormElement
 {
-    /**
-     * Default field information enabled for this element.
-     *
-     * @var array
-     */
-    protected $defaultFieldInformation = [
-        'tcaDescription' => [
-            'renderType' => 'tcaDescription',
-        ],
-    ];
-
     public function __construct(
         protected readonly TaskService $taskService,
         protected readonly SchedulerTaskRepository $taskRepository,
