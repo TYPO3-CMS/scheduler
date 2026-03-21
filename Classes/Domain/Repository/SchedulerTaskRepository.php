@@ -25,7 +25,9 @@ use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
 use TYPO3\CMS\Core\Database\Query\Restriction\HiddenRestriction;
 use TYPO3\CMS\Core\DataHandling\DataHandler;
+use TYPO3\CMS\Core\Localization\LanguageService;
 use TYPO3\CMS\Core\Schema\Capability\TcaSchemaCapability;
+use TYPO3\CMS\Core\Schema\Field\StaticSelectFieldType;
 use TYPO3\CMS\Core\Schema\TcaSchemaFactory;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Scheduler\Exception\InvalidTaskException;
@@ -179,7 +181,7 @@ readonly class SchedulerTaskRepository
             ),
             $queryBuilder->expr()->eq('t.deleted', $queryBuilder->createNamedParameter(0, Connection::PARAM_INT))
         );
-        $queryBuilder->orderBy('t.nextexecution', 'ASC');
+        $queryBuilder->orderBy('t.priority', 'DESC')->addOrderBy('t.nextexecution', 'ASC');
 
         $row = $queryBuilder->executeQuery()->fetchAssociative();
         if (empty($row)) {
@@ -269,6 +271,8 @@ readonly class SchedulerTaskRepository
                 $taskData['frequency'] = $taskObject->getExecution()->getCronCmd() ?: $taskObject->getExecution()->getInterval();
             }
             $taskData['multiple'] = (bool)$taskObject->getExecution()->isParallelExecutionAllowed();
+            $taskData['priority'] = (int)$row['priority'];
+            $taskData['priorityLabel'] = $this->resolvePriorityLabel((int)$row['priority']);
             $taskData['lastExecutionFailure'] = false;
             if (!empty($row['lastexecution_failure'])) {
                 $taskData['lastExecutionFailure'] = true;
@@ -528,5 +532,23 @@ readonly class SchedulerTaskRepository
     protected function isValidTaskObject($task): bool
     {
         return (new TaskValidator())->isValid($task);
+    }
+
+    private function resolvePriorityLabel(int $priority): string
+    {
+        $field = $this->tcaSchemaFactory->get(self::TABLE_NAME)->getField('priority');
+        if ($field instanceof StaticSelectFieldType) {
+            foreach ($field->getItems() as $item) {
+                if ((int)$item->getValue() === $priority) {
+                    return $this->getLanguageService()?->sL($item->getLabel()) ?? (string)$priority;
+                }
+            }
+        }
+        return (string)$priority;
+    }
+
+    private function getLanguageService(): ?LanguageService
+    {
+        return $GLOBALS['LANG'] ?? null;
     }
 }

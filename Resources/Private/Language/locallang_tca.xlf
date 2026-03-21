@@ -12,6 +12,18 @@
       <trans-unit id="tx_scheduler_task.task_group">
         <source>Belongs to task group</source>
       </trans-unit>
+      <trans-unit id="tx_scheduler_task.priority">
+        <source>Priority</source>
+      </trans-unit>
+      <trans-unit id="tx_scheduler_task.priority.high">
+        <source>High</source>
+      </trans-unit>
+      <trans-unit id="tx_scheduler_task.priority.regular">
+        <source>Regular</source>
+      </trans-unit>
+      <trans-unit id="tx_scheduler_task.priority.low">
+        <source>Low</source>
+      </trans-unit>
       <trans-unit id="tx_scheduler_task.description">
         <source>Description</source>
       </trans-unit>

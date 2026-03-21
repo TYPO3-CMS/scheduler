@@ -76,7 +76,7 @@ readonly class TaskService
         }
         if ($includeNativeTypes) {
             $schema = $this->tcaSchemaFactory->get('tx_scheduler_task');
-            $defaultFields = ['tasktype', 'task_group', 'description', 'parameters', 'execution_details', 'nextexecution', 'lastexecution_context', 'lastexecution_time', 'lastexecution_failure', 'disable'];
+            $defaultFields = ['tasktype', 'task_group', 'description', 'parameters', 'execution_details', 'nextexecution', 'lastexecution_context', 'lastexecution_time', 'lastexecution_failure', 'disable', 'priority'];
             // Loop over TCA items, and check if the task type is registered via TCA
             foreach ($schema->getField('tasktype')->getConfiguration()['items'] ?? [] as $item) {
                 if (is_array($item) && $item['value'] !== 'div') {

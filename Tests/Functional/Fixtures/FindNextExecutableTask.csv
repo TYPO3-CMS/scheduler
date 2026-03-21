@@ -1,0 +1,6 @@
+"tx_scheduler_task"
+,"uid","tasktype","deleted","disable","description","task_group","parameters","execution_details","nextexecution","priority"
+,1,"TYPO3\CMS\Scheduler\Task\CachingFrameworkGarbageCollectionTask",0,0,"Low priority, most overdue",0,"{}","{""start"":1000,""end"":0,""interval"":3600,""multiple"":false,""cronCmd"":"""",""isNewSingleExecution"":false}",1000,50
+,2,"TYPO3\CMS\Scheduler\Task\CachingFrameworkGarbageCollectionTask",0,0,"Regular priority, moderately overdue",0,"{}","{""start"":2000,""end"":0,""interval"":3600,""multiple"":false,""cronCmd"":"""",""isNewSingleExecution"":false}",2000,100
+,3,"TYPO3\CMS\Scheduler\Task\CachingFrameworkGarbageCollectionTask",0,0,"High priority, least overdue",0,"{}","{""start"":3000,""end"":0,""interval"":3600,""multiple"":false,""cronCmd"":"""",""isNewSingleExecution"":false}",3000,150
+,4,"TYPO3\CMS\Scheduler\Task\CachingFrameworkGarbageCollectionTask",0,0,"Regular priority, most overdue",0,"{}","{""start"":1500,""end"":0,""interval"":3600,""multiple"":false,""cronCmd"":"""",""isNewSingleExecution"":false}",1500,100
