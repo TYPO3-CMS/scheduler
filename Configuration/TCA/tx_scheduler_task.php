@@ -185,9 +185,7 @@ return [
                     description,
                     parameters,
                 --div--;core.form.tabs:timing,
-                    execution_details,
-                    nextexecution,
-                    --palette--;;lastexecution,
+                    --palette--;;execution,
                 --div--;core.form.tabs:access,
                     disable,
                 --div--;core.form.tabs:extended,
@@ -195,8 +193,12 @@ return [
         ],
     ],
     'palettes' => [
-        'lastexecution' => [
+        'execution' => [
             'showitem' => '
+                execution_details,
+                --linebreak--,
+                nextexecution,
+                --linebreak--,
                 lastexecution_context,
                 lastexecution_time,
                 --linebreak--,
