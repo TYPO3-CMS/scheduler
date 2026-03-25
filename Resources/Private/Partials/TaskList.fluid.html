@@ -88,8 +88,7 @@
                         <tfoot>
                             <tr>
                                 <td colspan="4">
-                                    <span class="t3js-table-total-items" title="{f:translate(key: 'LLL:EXT:scheduler/Resources/Private/Language/locallang.xlf:label.errorClass.taskCount')}">{errorClasses -> f:count()}</span>
-                                    <f:translate key="LLL:EXT:scheduler/Resources/Private/Language/locallang.xlf:label.errorClass"/>
+                                    <f:translate key="scheduler.messages:task.count" arguments="{count: '{errorClasses -> f:count()}'}" />
                                 </td>
                             </tr>
                         </tfoot>
@@ -300,7 +299,7 @@
                                             </be:link.editRecord>
                                         </div>
                                         <f:if condition="{task.description} != ''">
-                                            <div class="text-variant" style="margin-top: 0.5em;"><f:format.nl2br>{task.description}</f:format.nl2br></div>
+                                            <div class="text-variant mt-2"><f:format.nl2br>{task.description}</f:format.nl2br></div>
                                         </f:if>
                                     </td>
                                     <td class="align-top col-min">
@@ -505,25 +504,12 @@
                                 </tr>
                             </f:for>
                             </tbody>
-                            <tfoot>
-                                <tr>
-                                    <td colspan="10">
-                                        <f:if condition="!{group.groupName}">
-                                            <f:then>
-                                                <span class="t3js-table-total-items" title="{f:translate(key: 'LLL:EXT:scheduler/Resources/Private/Language/locallang.xlf:label.noGroup.taskCount')}">{group.tasks -> f:count()}</span>
-                                                <f:translate key="LLL:EXT:scheduler/Resources/Private/Language/locallang.xlf:label.noGroup" />
-                                            </f:then>
-                                            <f:else>
-                                                <span class="t3js-table-total-items" title="{f:translate(key: 'LLL:EXT:scheduler/Resources/Private/Language/locallang.xlf:label.group.taskCount')}">{group.tasks -> f:count()}</span>
-                                                <f:translate key="LLL:EXT:scheduler/Resources/Private/Language/locallang.xlf:function.scheduler" />
-                                            </f:else>
-                                        </f:if>
-                                    </td>
-                                </tr>
-                            </tfoot>
                         </table>
                     </div>
                 </form>
+            </div>
+            <div class="panel-footer">
+                <f:translate key="scheduler.messages:task.count" arguments="{count: '{group.tasks -> f:count()}'}" />
             </div>
         </div>
     </f:section>

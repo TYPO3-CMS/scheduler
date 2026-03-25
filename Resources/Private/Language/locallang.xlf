@@ -180,17 +180,8 @@
       <trans-unit id="label.group">
         <source>Task group</source>
       </trans-unit>
-      <trans-unit id="label.group.taskCount">
-        <source>Amount of tasks in this scheduler task group</source>
-      </trans-unit>
-      <trans-unit id="label.group.taskUnusedCount">
-        <source>Amount of unused task groups</source>
-      </trans-unit>
       <trans-unit id="label.noGroup">
         <source>Not assigned to any task group</source>
-      </trans-unit>
-      <trans-unit id="label.noGroup.taskCount">
-        <source>Amount of tasks that are not assigned to any scheduler task group</source>
       </trans-unit>
       <trans-unit id="label.group.isDisabled">
         <source>disabled</source>
@@ -212,9 +203,6 @@
       </trans-unit>
       <trans-unit id="label.errorClass">
         <source>Broken tasks</source>
-      </trans-unit>
-      <trans-unit id="label.errorClass.taskCount">
-        <source>Amount of broken tasks</source>
       </trans-unit>
       <trans-unit id="label.saveAndCreateNewTask">
         <source>Save and create new task</source>
@@ -585,6 +573,12 @@
       </trans-unit>
       <trans-unit id="delete_task">
         <source>Delete this task? You can restore it in the module "Recycler".</source>
+      </trans-unit>
+      <trans-unit id="task.count">
+        <source>{count, plural, one {# task} other {# tasks}}</source>
+      </trans-unit>
+      <trans-unit id="unusedGroups.count">
+        <source>{count, plural, one {# unused task group} other {# unused task groups}}</source>
       </trans-unit>
     </body>
   </file>

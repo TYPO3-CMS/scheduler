@@ -80,8 +80,7 @@
         </f:for>
         <tr>
             <td colspan="2">
-                <span class="t3js-table-total-items" title="{f:translate(key: 'LLL:EXT:scheduler/Resources/Private/Language/locallang.xlf:label.group.taskUnusedCount')}">{groupsWithoutTasks -> f:count()}</span>
-                <f:translate key="LLL:EXT:scheduler/Resources/Private/Language/locallang.xlf:label.group.unused" />
+                <f:translate key="LLL:EXT:scheduler/Resources/Private/Language/locallang.xlf:unusedGroups.count" arguments="{count: '{groupsWithoutTasks -> f:count()}'}" />
             </td>
         </tr>
         </tbody>
